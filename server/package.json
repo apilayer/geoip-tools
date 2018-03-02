@@ -1,0 +1,27 @@
+{
+  "name": "geoip",
+  "version": "0.1.9",
+  "description": "API, geolocation IP",
+  "main": "geoip.js",
+  "keywords": [],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jolav/geoip-tools.git"
+  },
+  "author": "jolav",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/jolav/geoip-tools/issues"
+  },
+  "homepage": "https://github.com/jolav/geoip-tools#readme",
+  "dependencies": {
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "js2xmlparser": "^3.0.0",
+    "json2csv": "^3.11.5",
+    "maxmind": "^2.5.0"
+  }
+}

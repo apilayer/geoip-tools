@@ -1,7 +1,5 @@
-# ![logo](https://github.com/jolav/geoip-tools/blob/master/_public/icons/geoip48.png?raw=true) **[GEOIP-TOOLS](https://geoip.tools)**  
+# ![logo](https://github.com/jolav/geoip-tools/blob/master/_public/icons/geoip128.png?raw=true) **[GEOIP-TOOLS](https://geoip.tools)**  
 
-
-Web server that retrieves geolocation information from any IPv4, IPv6 or hostname.
 
 Free GeoIP service that provides a public HTTPS (SSL access) API to retrieve geolocation information from any IPv4, IPv6 or hostname.
 
@@ -25,7 +23,7 @@ HTTP Request Template:
 [https://geoip.tools/v1/json/?q=geoip.tools](https://geoip.tools/v1/json/?q=geoip.tools)
  
  
-[https://geoip.tools/v1/xml/?q=94.177.251.222](https://geoip.tools/v1/xml/?q=94.177.251.222)
+[https://geoip.tools/v1/xml/?q=89.38.144.25](https://geoip.tools/v1/xml/?q=89.38.144.25)
  
 [https://geoip.tools/v1/xml/?q=2a00:1450:4006:803::200e](https://geoip.tools/v1/xml/?q=2a00:1450:4006:803::200e)
 

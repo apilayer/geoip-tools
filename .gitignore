@@ -14,7 +14,7 @@ secret.json
 stats.json
 
 # ip databases
-server/db
+_lib/db
 GeoLite2-City.mmdb
 
 
