@@ -1,0 +1,21 @@
+#Ignore these directories
+_aux/
+node_modules/
+tmp/
+
+#ignore these files
+# Ignore Mac DS_Store files
+.env
+.DS_Store
+config.js
+config.json
+private.json
+secret.json
+stats.json
+
+# ip databases
+server/db
+GeoLite2-City.mmdb
+
+
+
