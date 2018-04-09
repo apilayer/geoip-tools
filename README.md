@@ -1,5 +1,5 @@
 
-![Maintained YES](https://img.shields.io/badge/Maintained%3F-yes-green.svg) 
+![Maintained YES](https://img.shields.io/badge/Maintained%3F-yes-green.svg)  
 ![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)
 
 # ![logo](https://github.com/jolav/geoip-tools/blob/master/_public/icons/geoip128.png?raw=true) **[GEOIP-TOOLS](https://geoip.tools)**  
@@ -16,7 +16,8 @@ HTTP Request Template:
 
 <span>Supported formats : <span class="red">json</span>, <span class="red">xml</span></span> and <span class="red">csv</span><br>
 <span>If no IP or hostname is provided it retrieves your own IP</span><br>
-<span>IPv4 and IPv6 supported</span><br><br>
+<span>IPv4 and IPv6 supported</span><br>
+<span>CORS support out of the box makes geoip.tools perfect to your front end apps</span><br>
 
 
 * **Examples:**  
