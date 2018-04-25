@@ -7,7 +7,7 @@
 
 Free GeoIP service that provides a public HTTPS (SSL access) API to retrieve geolocation information from any IPv4, IPv6 or hostname.
 
-version 0.1.9
+version 0.2.0
 
 ### **[API DOCS](https://geoip.tools)**
 
@@ -28,7 +28,7 @@ HTTP Request Template:
 [https://geoip.tools/v1/json/?q=geoip.tools](https://geoip.tools/v1/json/?q=geoip.tools)
  
  
-[https://geoip.tools/v1/xml/?q=89.38.144.25](https://geoip.tools/v1/xml/?q=89.38.144.25)
+[https://geoip.tools/v1/xml/?q=192.168.200.200](https://geoip.tools/v1/xml/?q=192.168.200.200)
  
 [https://geoip.tools/v1/xml/?q=2a00:1450:4006:803::200e](https://geoip.tools/v1/xml/?q=2a00:1450:4006:803::200e)
 
