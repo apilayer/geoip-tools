@@ -5,11 +5,11 @@ const lib = require('./lib.js');
 const maxmind = require('maxmind');
 const connection = process.env.DB_STATS;
 const myIP = [
-  process.env.IP1,
   process.env.IP2,
   process.env.IP3,
-  process.env.IP4,
-  process.env.IP5
+  process.env.IP5,
+  process.env.IP7,
+  process.env.IP9
 ];
 
 function testDB () {
