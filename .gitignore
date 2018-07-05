@@ -15,6 +15,7 @@ stats.json
 
 # ip databases
 _lib/db
+_lib/csv
 GeoLite2-City.mmdb
 
 

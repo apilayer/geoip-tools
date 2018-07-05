@@ -66,6 +66,26 @@ function updateStats (req, res, next) {
   next();
 }
 
+function updateStats2 (reqdata) {
+  const test = reqdata.ip;
+  if (myIP.indexOf(reqdata.ip) === -1 && test) {
+    let dbData = {
+      'ip': reqdata.ip,
+      'countryCode': reqdata.country_code,
+      'countryName': reqdata.country_name,
+      'city': reqdata.city,
+      'time': new Date().toISOString().split('T')[0]
+    };
+    if (process.env.NODE_ENV === 'production') {
+      saveDataToDB(dbData);
+    } else {
+      console.log('SAVE TEST ...', dbData.ip);
+    }
+  } else {
+    console.log(test , ' => DONT SAVE');
+  }
+}
+
 function saveDataToDB (dbData) {
   mongo.connect(connection, function (err, db) {
     if (err) return console.log(err);
@@ -80,5 +100,6 @@ function saveDataToDB (dbData) {
 
 module.exports = {
   updateStats: updateStats,
+  updateStats2: updateStats2,
   testDB: testDB
 };

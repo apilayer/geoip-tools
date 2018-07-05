@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'production') {
 
 app.disable('x-powered-by');
 
-app.use(stats.updateStats);
+// app.use(stats.updateStats)
 
 app.get('/json/', (req, res) => {
   job.getJson(req, res, 'json');

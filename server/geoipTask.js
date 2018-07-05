@@ -6,6 +6,7 @@ const json2csv = require('json2csv');
 const fs = require('fs');
 const lib = require(__dirname + '/../_lib/lib.js');
 const path = require('path');
+const stats = require(__dirname + '/../_lib/stats.js');
 
 let data;
 let geoData;
@@ -63,6 +64,7 @@ function getDataFromDB (req, res, format, ip) {
 
 function sendResult (res, format, data, status) {
   if (format === 'json') {
+    stats.updateStats2(data);
     res.header('Content-Type', 'application/json');
     res.status(status).send(JSON.stringify(data, null, 3));
   } else if (format === 'xml') {
