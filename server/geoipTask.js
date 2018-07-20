@@ -63,8 +63,8 @@ function getDataFromDB (req, res, format, ip) {
 }
 
 function sendResult (res, format, data, status) {
+  stats.updateStats(data);
   if (format === 'json') {
-    stats.updateStats2(data);
     res.header('Content-Type', 'application/json');
     res.status(status).send(JSON.stringify(data, null, 3));
   } else if (format === 'xml') {
