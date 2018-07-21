@@ -7,7 +7,7 @@
 
 Free GeoIP service that provides a public HTTPS (SSL access) API to retrieve geolocation information from any IPv4, IPv6 or hostname.
 
-version 0.2.1
+version 0.2.3
 
 ### **[API DOCS](https://geoip.tools)**
 
@@ -35,7 +35,7 @@ HTTP Request Template:
 
 * **Usage Limits:**  
 
-120 requests per minute. Once reached subsequent requests will result in error 503 until your quota is cleared.  
+300 requests per minute (432.000 API requests daily). Once reached subsequent requests will result in error 503 until your quota is cleared.  
 If you need more quota contact us.  
 Our API requires no key or signup.
 

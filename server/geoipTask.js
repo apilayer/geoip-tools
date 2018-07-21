@@ -8,17 +8,25 @@ const lib = require(__dirname + '/../_lib/lib.js');
 const path = require('path');
 const stats = require(__dirname + '/../_lib/stats.js');
 
+/* DATABASE IN MEMORY */
+const MMDBReader = require('mmdb-reader');
+const dbpath = path.join(__dirname , '/../_lib/db/GeoLite2-City.mmdb');
+const reader = new MMDBReader(dbpath);
+
 let data;
 let geoData;
 
 function getJson (req, res, format) {
+  console.log('************************************************');
+  console.log(req.headers.origin || req.headers.host);
+  console.log(req.url);
   cleanData();
   let q = req.query.q;
   if (!q) {
     q = lib.getIP(req);
   }
   if (lib.isValidIP(q)) {
-    getDataFromDB(req, res, format, q);
+    getDataFromRAM(req, res, format, q);
     return;
   }
   if (lib.isValidHostname(q)) {
@@ -33,7 +41,7 @@ function getJson (req, res, format) {
         sendResult(res, 'json', text, 400);
         return;
       }
-      getDataFromDB(req, res, format, ip);
+      getDataFromRAM(req, res, format, ip);
       return;
     });
     return;
@@ -60,6 +68,17 @@ function getDataFromDB (req, res, format, ip) {
     sendResult(res, format, geoData, 200);
     return;
   });
+}
+
+function getDataFromRAM (req, res, format, ip) {
+  data = reader.lookup(ip);
+  if (data === null) { // not in database
+    sendResult(res, format, geoData, 200);
+    return;
+  }
+  geoData = handleGeoData(ip, data);
+  sendResult(res, format, geoData, 200);
+  return;
 }
 
 function sendResult (res, format, data, status) {
