@@ -17,9 +17,6 @@ let data;
 let geoData;
 
 function getJson (req, res, format) {
-  console.log('************************************************');
-  console.log(req.headers.origin || req.headers.host);
-  console.log(req.url);
   cleanData();
   let q = req.query.q;
   if (!q) {

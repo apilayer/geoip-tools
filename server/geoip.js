@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 
 require('dotenv').config({ path: __dirname + '/../_lib/.env' });
-const stats = require(__dirname + '/../_lib/stats.js');
 const job = require(__dirname + '/geoipTask.js');
 
 let port = 3000;
@@ -13,8 +12,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.disable('x-powered-by');
-
-// app.use(stats.updateStats)
 
 app.get('/json/', (req, res) => {
   job.getJson(req, res, 'json');
