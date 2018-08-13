@@ -6,7 +6,6 @@ const json2csv = require('json2csv');
 const fs = require('fs');
 const lib = require(__dirname + '/../_lib/lib.js');
 const path = require('path');
-const stats = require(__dirname + '/../_lib/stats.js');
 
 /* DATABASE IN MEMORY */
 const MMDBReader = require('mmdb-reader');
@@ -79,7 +78,6 @@ function getDataFromRAM (req, res, format, ip) {
 }
 
 function sendResult (res, format, data, status) {
-  stats.updateStats(data);
   if (format === 'json') {
     res.header('Content-Type', 'application/json');
     res.status(status).send(JSON.stringify(data, null, 3));

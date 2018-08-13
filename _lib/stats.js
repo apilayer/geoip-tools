@@ -9,30 +9,12 @@ const con = mysql.createConnection({
   host: process.env.HOST,
   user: process.env.MYSQLUSER,
   password: process.env.PASSWORD,
-  database: process.env.DB
+  database: process.env.DB_GEOIP
 });
 
-const myIP = [
-  process.env.IP2,
-  process.env.IP3,
-  process.env.IP7
-];
-
-function testDB () {
-  console.log('Connecting ......');
-  // console.log(con)
-  con.connect(function (err) {
-    if (err) {
-      console.log('Error connecting to DB => ', err);
-    } else {
-      console.log('Connection OK');
-    }
-  });
-}
-
-function updateStats (reqdata) {
-  const test = reqdata.ip;
-  if (test && myIP.indexOf(test) === -1) {
+function updateStats (req, res, next) {
+  const test = lib.getIP(req);
+  if (test) {
     const time = new Date().toISOString().split('T')[0];
     if (process.env.NODE_ENV === 'production') {
       insertHit(time);
@@ -42,10 +24,13 @@ function updateStats (reqdata) {
   } else {
     console.log(test, 'DONT SAVE => ');
   }
+  next();
 }
 
 function insertHit (time) {
-  let sql = 'INSERT INTO ?? (time) VALUE (?);';
+  let sql = 'INSERT INTO ?? (day, geoip)';
+  sql += ' VALUES (?, 0)';
+  sql += ` ON DUPLICATE KEY UPDATE geoip = geoip + 1;`;
   const inserts = [TABLE, time];
   sql = mysql.format(sql, inserts);
   con.query(sql, function (err, rows) {
@@ -54,6 +39,18 @@ function insertHit (time) {
     // throw err
     } else {
       // console.log(rows)
+    }
+  });
+}
+
+function testDB () {
+  console.log('Connecting ......');
+  // console.log(con)
+  con.connect(function (err) {
+    if (err) {
+      console.log('Error connecting to DB => ', err);
+    } else {
+      console.log('Connection OK');
     }
   });
 }
